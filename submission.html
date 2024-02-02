@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission Details</title>
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(#E0FFFF, white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #submissionDetails {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            width: 70%;
+            text-align: center;
+        }
+
+        #submissionDetails p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="submissionDetails">
+        <h1>Form Submission Details</h1>
+
+        <!-- Form data will be displayed here -->
+    </div>
+
+    <script>
+        // Function to extract URL parameters
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // Get the form data from URL parameters
+        var formData = new URLSearchParams(window.location.search);
+
+        // Get the container div to display form data
+        var submissionDetails = $('#submissionDetails');
+
+        // Iterate over form data and display it using jQuery
+        formData.forEach(function(value, key) {
+            var detailItem = $('<p></p>').html(`<strong>${key}:</strong> ${value}`);
+            submissionDetails.append(detailItem);
+        });
+    </script>
+</body>
+</html>

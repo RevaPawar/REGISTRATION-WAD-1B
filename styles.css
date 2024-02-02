@@ -1,0 +1,14 @@
+th {
+	
+	font-size: 24px;
+	font-weight: bold;
+	text-align: left;
+}
+body {
+    background-image:linear-gradient(#E0FFFF,white);
+	font-size: 14px;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
